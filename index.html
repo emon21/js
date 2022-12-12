@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    
+        <!-- <div id="main_container">
+            <div id="birth_date_input">Birth Date: <input type="date" id="birth_date"></div>
+            <br/>
+            <div id="calculate">Calculate your age</div>
+            <div id="age_container"><span id="exact_age">Age</span></div>
+            <p><em>* Year here means 365 days and Month  here means 30 days, thus your birthday may not means you will be 0 days old</em></p>
+            <hr> 
+        </div> -->
+   
+      <!-- <script>
+        $('.date-mask').inputmask('mm/dd/yyyy');
+
+var handlers = {
+  calculateAge: function (dob) {
+    if (!dob) {
+      return;
+    }
+    
+    var ageDifMs = Date.now() - new Date(dob).getTime();
+    var ageDate = new Date(ageDifMs);
+    
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  },
+  populateAge: function () {
+    var dob = $('.js-field--dob').val();
+    var age = handlers.calculateAge(dob);
+    $('.js-field--age').val(age);
+  },
+  submit: function(e) {
+    e.preventDefault();
+    handlers.populateAge();
+  }
+}
+
+$('button').on('click', handlers.submit);
+      </script> -->
+
+      <form class="container">
+        <h1>Calculate age from birth date</h1>
+        <hr>
+        
+        <div class="form-group">
+          <label>Birth date <small class="text-muted">mm/dd/yyyy</small>
+            <input class="form-control js-field--dob date-mask" id="DOB" name="DOB" type="text" required>
+          </label>
+        </div>
+        <div class="form-group">
+          <label>Age
+            <input class="form-control js-field--age" id="Age" name="Age" type="text" readonly>
+          </label>
+        </div>
+        <hr>
+        <button class="btn btn-primary" type="submit">Calculate</button>
+      </form>
+      
+      <script src="/assets/js/main.js"></script>
+
+
+      <script>
+
+$('.date-mask').inputmask('mm/dd/yyyy');
+
+var handlers = {
+  calculateAge: function (dob) {
+    if (!dob) {
+      return;
+    }
+    
+    var ageDifMs = Date.now() - new Date(dob).getTime();
+    var ageDate = new Date(ageDifMs);
+    
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  },
+  populateAge: function () {
+    var dob = $('.js-field--dob').val();
+    var age = handlers.calculateAge(dob);
+    $('.js-field--age').val(age);
+  },
+  submit: function(e) {
+    e.preventDefault();
+    handlers.populateAge();
+  }
+}
+
+$('button').on('click', handlers.submit);
+
+      </script>
+</body>
+</html>
