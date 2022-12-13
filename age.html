@@ -15,19 +15,21 @@
 </div>
   
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-sm-4">
-     <form>
-        <input type="date" id="date" class="form-control col-md-2">
-        <input type="button" name="submit" value="Submit" onclick="age()" class="btn btn-outline-success mt-2" />
-     </form>
-    </div>
-    
+  <div class="row mx-auto">
 
     <div class="col-sm-4">
-      <p class="text-success">Date of Birth : <span id="dob" class="text-danger text-bold"></span></p>
-      <p id="v1">Penta Vaccine :<span id="v1" class="text-danger text-bold"></span></p>
-      <p id="v2">MR-1:<span id="v2" class="text-danger text-bold"></span></p>
+        <div class="form-group mb-2 col-sm-4">
+            <form>
+                <input type="date" id="date" class="form-control col-md-2">
+                <input type="button" name="submit" value="Submit" onclick="age()" class="btn btn-outline-success mt-2" />
+             </form>
+        </div>
+      <p class="text-success">Date of Birth : <span id="dob" class="text-danger font-weight-bold"></span></p>
+      <span>
+      </span>
+      <p>Penta Vaccine : <span id="penta" class="text-danger font-weight-bold"></span></p>
+      <p>MR-1 Vaccine: <span id="v1" class="text-danger font-weight-bold"></span></p>
+      <p>MR-2 Vaccine: <span id="v2" class="text-danger font-weight-bold"></span></p>
     </div>
 
   </div>
@@ -59,24 +61,33 @@ function addDays(theDate, days) {
 }
    
 var date = document.getElementById('date').value;
+var date3 = addDays(new Date(date),0);
+var ag = date3.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
 
-// 45 days added 
+
+// 45 days added date1.getFullYear() + date1.getMonth() +getDate()
+
 var date1 = addDays(new Date(date), 45);
-var dateFormated = date1.toISOString().substr(0,10);
+var dateFormated =   date1.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
+// var dateFormated1 =   date1.getFullYear();
+// var ag = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
 console.log(dateFormated);
+// "Friday, Jul 2, 2021"
 
 // 60 days added 
 var date2 = addDays(new Date(date), 60);
-var v1 = date2.toISOString().substr(0,10);
-console.log(v1);
+var v1 = date2.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
+//console.log(v1);
 
 // 90 days added 
 var date3 = addDays(new Date(date), 90);
-var v2 = date3.toISOString().substr(0,10);
-console.log(v2);
+// var v2 = date3.toISOString().substr(0,10);
+var v2 = date3.toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
+//console.log(v2);
 
-document.getElementById("dob").innerHTML = date;
-document.getElementById("v1").innerHTML = dateFormated;
+document.getElementById("dob").innerHTML = ag;
+document.getElementById("penta").innerHTML = dateFormated;
+document.getElementById("v1").innerHTML = v1;
 document.getElementById("v2").innerHTML = v2;
 
 //console.log(dateFormated)
